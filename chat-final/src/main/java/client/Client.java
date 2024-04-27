@@ -44,8 +44,8 @@ public class Client {
 
 			showMenu();
 
-			socket.close();
-		} catch (IOException e) {
+		    System.exit(0);
+		}  catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
