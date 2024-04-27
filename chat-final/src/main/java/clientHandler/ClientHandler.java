@@ -31,9 +31,10 @@ public class ClientHandler extends Thread {
 			while (true) {
 				String message = in.readLine();
 				if (message.equals("/sair")) {
-					this.clientSocket.close();
-					System.out.println(clientName + " saiu do chat.");
-					break;
+					clientSocket.close();
+					System.out.println("Usuário desconectado: " + clientName);
+					clients.remove(this);
+					return;
 				} else if (message.equals("/users")) {
 					listUsers();
 					System.out.println(clientName + " solicitou a lista de usuários conectados.");
@@ -51,9 +52,6 @@ public class ClientHandler extends Thread {
 				}
 			}
 
-			clientSocket.close();
-			System.out.println("Usuário desconectado: " + clientName);
-			clients.remove(this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
