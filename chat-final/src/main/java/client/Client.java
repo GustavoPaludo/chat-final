@@ -117,11 +117,13 @@ public class Client {
 		String recipientName = userInput.readLine();
 		if (recipientName.equals("/return")) {
 			out.println("/return");
+			return;
 		}
 		System.out.print("\nDigite o caminho completo do arquivo que deseja enviar: ");
 		String filePath = userInput.readLine();
 		if (filePath.equals("/return")) {
 			out.println("/return");
+			return;
 		}
 		File file = new File(filePath);
 		if (!file.exists() || file.isDirectory()) {
